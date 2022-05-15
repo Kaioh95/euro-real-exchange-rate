@@ -3,12 +3,11 @@ Author: Kaio Henrique de Sousa
 Date: May 2022
 """
 
-import streamlit as st
 import logging
+import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib import style
-from io import BytesIO
 # %matplotlib inline
 
 #config logging
@@ -76,7 +75,8 @@ euro_to_real['BR_real'] = euro_to_real['BR_real'].astype('float')
 euro_to_real.info()
 
 # Streamlit
-st.title('Euro-Real Exchange Rates Under Lula(2003-2011), Dilma-Temer(2011-2019) and Bolsonaro(2019-2021)')
+st.title('Euro-Real Exchange Rates Under Lula(2003-2011)'\
+         ', Dilma-Temer(2011-2019) and Bolsonaro(2019-2021)')
 
 with st.sidebar:
     optionCurrency = st.selectbox(
@@ -84,7 +84,7 @@ with st.sidebar:
         ('US_dollar', 'Chinese_yuan_renminbi',
         'BR_real', 'Canadian_dollar',
         'Japanese_yen', 'Indian_rupee'))
-    
+
 st.write('You selected:', optionCurrency)
 
 style.use('fivethirtyeight')
@@ -126,16 +126,16 @@ with st.sidebar:
 st.header('Exchange Rates Under a Selected Brazilian President')
 st.write('You selected:', optionPresident)
 
-if(optionPresident == 'Lula'):
+if optionPresident == 'Lula':
     fig_lula, ax_lula = plt.subplots()
     ax_lula.plot(lula['Time'],
                  lula['rolling_mean'],
                  color='purple', alpha=0.7)
-    
+
     plt.xticks(rotation=35)
     st.pyplot(fig_lula)
-    
-elif(optionPresident == 'Dilma-Temer'):
+
+elif optionPresident == 'Dilma-Temer':
     fig_dilma_temer, ax_dilma_temer = plt.subplots()
     ax_dilma_temer.plot(dilma_temer['Time'],
                         dilma_temer['rolling_mean'],
@@ -143,8 +143,8 @@ elif(optionPresident == 'Dilma-Temer'):
 
     plt.xticks(rotation=35)
     st.pyplot(fig_dilma_temer)
-    
-elif(optionPresident == 'Bolsonaro'):
+
+elif optionPresident == 'Bolsonaro':
     fig_bolsonaro, ax_bolsonaro = plt.subplots()
     ax_bolsonaro.plot(bolsonaro['Time'],
                       bolsonaro['rolling_mean'],
@@ -205,4 +205,3 @@ ax4.grid(alpha=0.5)
 
 st.header('Exchange Rates Under the Last Three Brazilian Presidents')
 st.pyplot(fig_all)
-

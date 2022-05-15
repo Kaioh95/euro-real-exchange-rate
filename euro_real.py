@@ -201,4 +201,3 @@ ax4.text(730690, 0.0, 'Author: Kaio Henrique' + ' '*103 + 'Fonte: European Centr
 
 #plt.savefig('underThree.png', format='png')
 plt.show()
-
