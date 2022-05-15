@@ -34,4 +34,6 @@
  <center><img src="img/bolsonaro.png"></center>
  <center><img src="img/all.png"></center>
  
- 
+ ## Video
+ A seguir o vídeo onde é mostrado os resultados da análise.
+ [youtube](https://youtu.be/MYLwL_Bdplo)
